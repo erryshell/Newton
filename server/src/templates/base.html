@@ -1,1 +1,31 @@
-base.html
+<!DOCTYPE html>
+<html>
+ <head>
+   <link type="text/css" rel="stylesheet" href="/static/main.css" />
+
+   <title>Newton: A web-based reinforcement learning infrastructure</title>
+ </head>
+
+ <body>
+   <a class="header-logo" href="/">
+     Newton
+   </a>
+
+   <div class="login-area">
+     {% if user %}
+     <a class="home-link" href="/home">{{user.name}}</a>
+     (<a class="login-link" href="/logout">Sign out</a>)
+     {% else %}
+     <a class="login-link" href="/login">Sign in</a>
+     |
+     <a class="login-link" href="/signup">Sign up</a>
+     {% endif %}
+   </div>
+
+   <div id="content">
+     {% block content %}
+     {% endblock %}
+   </div>
+
+ </body>
+</html>
