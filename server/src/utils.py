@@ -3,6 +3,16 @@ import hmac
 import hashlib
 import random
 from string import letters
+import jinja2
+import os
+
+template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
+                               autoescape = True)
+
+def render_str(template, **params):
+    t = jinjia_env.get_template(template)
+    return t.render(params)
 
 #password hash using salt
 def make_salt(length = 5):

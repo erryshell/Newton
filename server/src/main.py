@@ -8,7 +8,10 @@ import home
 
 class MainHandler(handler.BaseHandler):
     def get(self):
-        self.render("index.html")
+        if self.user:
+            self.redirect("/home")
+        else:
+            self.render("index.html")
 
 app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/home', home.Home),
