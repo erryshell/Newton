@@ -20,4 +20,4 @@ app = webapp2.WSGIApplication([('/', MainHandler),
                                ('/login', login.Login),
                                ('/logout', logout.Logout),
                                ('/tasks/new', createtask.CreateTask)],
-                              debug=True)
+                              debug=False)
