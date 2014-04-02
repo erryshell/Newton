@@ -2,5 +2,15 @@
 
 {% block content %}
 <h2> Welcome, {{username}}!</h2>
+<div>
+  <a class="button" href="/tasks/new">+ New Task</a>
+</div>
 
+<!-- TASKS -->
+{% for t in tasks %}
+{{ t.render_item() | safe }}
+{% endfor %}
+<!-- /TASKS -->
+<br>
+<div class="error">{{error}}</div>
 {% endblock %}

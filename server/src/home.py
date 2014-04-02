@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import handler
+import DB
 
 class Home(handler.BaseHandler):
     
@@ -8,11 +9,11 @@ class Home(handler.BaseHandler):
             params = dict(username = self.user.name)
             #TODO:
             #restore tasks in memcache
-            tasks = Tasks.by_user_key(self.user).order('-updated')
+            tasks = DB.Task.by_user_key(self.user)
             if tasks:
                 params["tasks"] = tasks
             else:
                 params["error"] = "You currently have no tasks."
-            self.render("home.html", username = self.user.name)
+            self.render("home.html", **params)
         else:
             self.redirect('/signup')

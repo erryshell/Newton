@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>New Task</h2>
+
+<form method="post">
+  <dl class="form">
+    <dt><label>Task name</label></dt>
+    <dd>
+      <input type="text" name="taskname" value="{{taskname}}">
+    </dd>
+  </dl>
+
+  <dl class="form">
+    <dt><label>Description(optional)</label></dt>
+    <dd>
+      <input type="text" name="description" value="{{description}}">
+    </dd>
+  </dl>
+
+  <dl class="form">
+    <dt><label>Algorithm</label></dt>
+    <dd>
+      <input type="checkbox" name="algorithm" value="{{algorithm}}">
+    </dd>
+  </dl>
+
+  <dl class="form">
+    <dt><label>Population</label></dt>
+    <dd>
+      <input type="text" name="population" value="{{population}}">
+    </dd>
+  </dl>
+
+  <dl class="form">
+    <dt><label>Generation</label></dt>
+    <dd>
+      <input type="text" name="generation" value="{{generation}}">
+    </dd>
+  </dl>
+
+<br>
+
+  <input type="submit">
+</form>
+
+{% endblock %}
